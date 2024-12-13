@@ -1,34 +1,34 @@
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: sans-serif;
-  padding: 20px;
-}
-
 .flashcards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: space-around; /* Space out the cards across the container */
+  padding: 16px;
 }
 
 .flashcards div {
-  border: 1px solid #e7e7e7;
-  background-color: #f7f7f7;
-  border-radius: 7px;
-  aspect-ratio: 2 / 1;
+  width: 45%; /* Each flashcard will take up 45% of the container width */
+  max-width: 400px; /* Ensure no flashcard exceeds 400px */
+  height: 250px; /* Increased height */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  padding: 20px;
+  padding: 16px;
+  box-sizing: border-box; /* Ensures padding and border don't affect the width/height */
   cursor: pointer;
+  transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
-div.selected {
-  border: 1px solid #e03131;
-  background-color: #e03131;
-  color: #fff;
-  font-weight: bold;
+.flashcards div.selected {
+  background-color: #d1e7ff;
+  transform: scale(1.05);
+}
+
+.flashcards div:not(.selected):hover {
+  background-color: #e0e0e0;
 }
